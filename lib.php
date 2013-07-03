@@ -1230,7 +1230,7 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
                                '&amp;course='.$data->course.'">'.fullname($record).'</a>';
 
         $patterns[]='##email##';
-        $replacement[] = '<a href="mailto:'.$record->email.'">'
+        $replacement[] = '<a href="mailto:'.get_complete_user_data('id', $record->userid)->email.'">'
             .get_complete_user_data('id', $record->userid)->email.'</a>';        
         
         $patterns[]='##export##';
