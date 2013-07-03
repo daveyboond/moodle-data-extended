@@ -1229,6 +1229,10 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
         $replacement[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$record->userid.
                                '&amp;course='.$data->course.'">'.fullname($record).'</a>';
 
+        $patterns[]='##email##';
+        $replacement[] = '<a href="mailto:'.$record->email.'">'
+            .get_complete_user_data('id', $record->userid)->email.'</a>';        
+        
         $patterns[]='##export##';
 
         if (!empty($CFG->enableportfolios) && ($template == 'singletemplate' || $template == 'listtemplate')
