@@ -135,6 +135,7 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         $this->field->param1 = '';
         $this->field->param2 = '';
         $this->field->param3 = '';
+        $this->field->param9 = '';
         $this->field->name = '';
         $this->field->description = '';
 
@@ -167,6 +168,9 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         }
         if (isset($data->param5)) {
             $this->field->param5 = trim($data->param5);
+        }
+        if (isset($data->param9)) {
+            $this->field->param9 = trim($data->param9);
         }
 
         return true;

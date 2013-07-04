@@ -142,6 +142,7 @@ $string['fieldheight'] = 'Height';
 $string['fieldheightlistview'] = 'Height in list view';
 $string['fieldheightsingleview'] = 'Height in single view';
 $string['fieldids'] = 'Field ids';
+$string['fieldlock'] = 'Lock field for editing';
 $string['fieldmappings'] = 'Field mappings';
 $string['fieldmappings_help'] = 'This menu allows you to keep the data from the existing database. To preserve the data in a field, you must map it to a new field, where the data will appear. Any field can also be left blank, with no infomation copied into it. Any old field not mapped to a new one will be lost and all it\'s data removed.
 You can only map fields of the same type, so each dropdown will have different fields in it. Also, you must be careful not to try and map one old field to more than one new field.';

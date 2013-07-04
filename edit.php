@@ -289,7 +289,11 @@ if ($data->addtemplate){
     foreach ($possiblefields as $eachfield){
         $field = data_get_field($eachfield, $data);
         $patterns[]="[[".$field->field->name."]]";
-        $replacements[] = $field->display_add_field($rid);
+        if ($field->field->param9 == '1' && !has_capability('mod/data:manageentries',$context)) {
+            $replacements[] = 'Not editable';
+        } else {
+            $replacements[] = $field->display_add_field($rid);
+        }
         $patterns[]="[[".$field->field->name."#id]]";
         $replacements[] = 'field_'.$field->field->id;
     }
