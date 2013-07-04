@@ -260,6 +260,7 @@ $string['nomaximum'] = 'No maximum';
 $string['norecords'] = 'No entries in database';
 $string['nosingletemplate'] = 'Single template is not yet defined';
 $string['notapproved'] = 'Entry is not approved yet.';
+$string['noteditable'] = 'Not editable';
 $string['notinjectivemap'] = 'Not an injective map';
 $string['notopenyet'] = 'Sorry, this activity is not available until {$a}';
 $string['number'] = 'Number';

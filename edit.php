@@ -290,7 +290,7 @@ if ($data->addtemplate){
         $field = data_get_field($eachfield, $data);
         $patterns[]="[[".$field->field->name."]]";
         if ($field->field->param9 == '1' && !has_capability('mod/data:manageentries',$context)) {
-            $replacements[] = 'Not editable';
+            $replacements[] = get_string('noteditable', 'data');
         } else {
             $replacements[] = $field->display_add_field($rid);
         }
