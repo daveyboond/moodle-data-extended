@@ -168,7 +168,9 @@ if ($datarecord = data_submitted() and confirm_sesskey()) {
             $record->approved = 0;
         }
 
-        $record->groupid = $currentgroup;
+        /* Steve Bond 2014: Removed this line, as it can cause group info to be
+         * lost when an editor edits a student's record. See https://tracker.moodle.org/browse/MDL-22771
+        $record->groupid = $currentgroup; */
         $record->timemodified = time();
         $DB->update_record('data_records', $record);
 
@@ -291,7 +293,11 @@ if ($data->addtemplate){
     foreach ($possiblefields as $eachfield){
         $field = data_get_field($eachfield, $data);
         $patterns[]="[[".$field->field->name."]]";
-        $replacements[] = $field->display_add_field($rid);
+        if ($field->field->param9 == '1' && !has_capability('mod/data:manageentries',$context)) {
+            $replacements[] = get_string('noteditable','data');
+        } else {
+            $replacements[] = $field->display_add_field($rid);
+        }
         $patterns[]="[[".$field->field->name."#id]]";
         $replacements[] = 'field_'.$field->field->id;
     }

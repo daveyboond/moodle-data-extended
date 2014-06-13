@@ -18,14 +18,14 @@
  * Data module version information
  *
  * @package    mod
- * @subpackage data
- * @copyright  2005 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @subpackage data (data_extended)
+ * @copyright  2014 Steve Bond
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$module->version   = 2013110500;       // The current module version (Date: YYYYMMDDXX)
+$module->version   = 2014061300;       // The current module version (Date: YYYYMMDDXX)
 $module->requires  = 2013110500;       // Requires this Moodle version
 $module->component = 'mod_data';       // Full name of the plugin (used for diagnostics)
 $module->cron      = 0;

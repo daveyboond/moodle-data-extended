@@ -135,6 +135,7 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         $this->field->param1 = '';
         $this->field->param2 = '';
         $this->field->param3 = '';
+        $this->field->param9 = '';
         $this->field->name = '';
         $this->field->description = '';
 
@@ -168,7 +169,10 @@ class data_field_base {     // Base class for Database Field Types (see field/*/
         if (isset($data->param5)) {
             $this->field->param5 = trim($data->param5);
         }
-
+        if (isset($data->param9)) {
+            $this->field->param9 = trim($data->param9);
+        }
+        
         return true;
     }
 
@@ -1245,6 +1249,13 @@ function data_print_template($template, $records, $data, $search='', $page=0, $r
         $replacement[] = '<a href="'.$CFG->wwwroot.'/user/view.php?id='.$record->userid.
                                '&amp;course='.$data->course.'">'.fullname($record).'</a>';
 
+        $patterns[]='##email##';
+        $replacement[] = '<a href="mailto:'.get_complete_user_data('id', $record->userid)->email.'">'.get_complete_user_data('id', $record->userid)->email.'</a>';
+
+        $patterns[]='##picture##';
+        $replacement[] = '<img class="userpicture" src="' . $CFG->wwwroot . '/user/pix.php/' . $record->userid
+		    . '/f2.jpg" alt="' . get_string('pictureof','',fullname($record)) . '" />';        
+        
         $patterns[]='##export##';
 
         if (!empty($CFG->enableportfolios) && ($template == 'singletemplate' || $template == 'listtemplate')
