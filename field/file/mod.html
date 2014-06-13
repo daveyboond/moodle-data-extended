@@ -13,13 +13,9 @@
         <td class="c1">
             <?php
                 $course = $DB->get_record('course', array('id'=>$this->data->course));
-                $choices = get_max_upload_sizes($CFG->maxbytes, $course->maxbytes);
+                $choices = get_max_upload_sizes($CFG->maxbytes, $course->maxbytes, 0, $this->field->param3);
                 echo html_writer::select($choices, 'param3', $this->field->param3, false, array('id' => 'param3'));
             ?>
         </td>
-    </tr>
-    <tr>
-      <td class="c0"><label for="param9"><?php echo get_string('fieldlock', 'data'); ?></label></td>
-      <td class="c1"><input type="checkbox" name="param9" id="param9" <?php if($this->field->param9) {echo 'checked="checked"';} ?> value="1" /></td>
     </tr>
 </table>

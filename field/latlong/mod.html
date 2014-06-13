@@ -45,8 +45,4 @@
         <td class="c0">&nbsp;</td>
         <td class="c1"><?php if($this->field->id) {echo "<a href='./field/latlong/kml.php?d=".$this->data->id."&fieldid=".$this->field->id."'>" . get_string('latlongdownloadallhint', 'data') . "</a>"; } ?></td>
     </tr>
-    <tr>
-      <td class="c0"><label for="param9"><?php echo get_string('fieldlock', 'data'); ?></label></td>
-      <td class="c1"><input type="checkbox" name="param9" id="param9" <?php if($this->field->param9) {echo 'checked="checked"';} ?> value="1" /></td>
-    </tr>
 </table>

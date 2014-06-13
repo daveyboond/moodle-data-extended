@@ -62,7 +62,9 @@ class data_field_url extends data_field_base {
             // Just the URL field
             $str .= '<label class="accesshide" for="' . $fieldid . '">'. $this->field->name .'</label>';
             $str .= '<input type="text" name="field_'.$this->field->id.'_0" id="'.$fieldid.'" value="'.s($url).'" size="60" />';
-            $str .= '<button id="filepicker-button-'.$options->client_id.'" style="display:none">'.$straddlink.'</button>';
+            if (count($options->repositories) > 0) {
+                $str .= '<button id="filepicker-button-'.$options->client_id.'" style="display:none">'.$straddlink.'</button>';
+            }
         }
 
         // print out file picker
@@ -109,11 +111,17 @@ class data_field_url extends data_field_base {
             }
             if ($this->field->param1) {
                 // param1 defines whether we want to autolink the url.
-                if (!empty($text)) {
-                    $str = '<a href="'.$url.'">'.$text.'</a>';
-                } else {
-                    $str = '<a href="'.$url.'">'.$url.'</a>';
+                $attributes = array();
+                if ($this->field->param3) {
+                    // param3 defines whether this URL should open in a new window.
+                    $attributes['target'] = '_blank';
                 }
+
+                if (empty($text)) {
+                    $text = $url;
+                }
+
+                $str = html_writer::link($url, $text, $attributes);
             } else {
                 $str = $url;
             }
